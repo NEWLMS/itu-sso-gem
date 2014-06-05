@@ -3,8 +3,12 @@ module ITU
     module Helpers
       def current_user
         unless @current_user
-          client = Client.new(user_auth_token)
-          @current_user = client.user.get
+          client   = Client.new(user_auth_token)
+          sso_user = client.user.get
+
+          if sso_user.authentication_token == user_auth_token
+            @current_user = User.find_by(authentication_token: user_auth_token)
+          end
         end
 
         @current_user

@@ -11,8 +11,11 @@ VCR.configure do |config|
   config.hook_into :webmock
 end
 
+load File.dirname(__FILE__) + '/schema.rb'
+require File.dirname(__FILE__) + '/support/models/user'
+
 RSpec.configure do |config|
   config.use_transactional_fixtures = true
   config.infer_base_class_for_anonymous_controllers = false
-  config.order = "random"
+  config.order = 'random'
 end

@@ -13,6 +13,9 @@ describe ITU::SSO::Helpers do
       config.url          = 'http://localhost:3000/api'
       config.access_token = '81d891aa40ad853cbfad0e1dcdb17d64'
     end
+
+    User.create(email: 'johndoe@itu-dev.edu',
+                authentication_token: 'd06c34173b49111320a86cf4738dd264')
   end
 
   subject { DummyHelper.new }
@@ -20,7 +23,7 @@ describe ITU::SSO::Helpers do
   describe '#current_user' do
     it 'returns an user', :type => :helper do
       VCR.use_cassette('get_user') do
-        expect(subject.current_user).to be_instance_of(ITU::SSO::Resources::User)
+        expect(subject.current_user).to be_instance_of(::User)
         expect(subject.current_user.email).to eql('johndoe@itu-dev.edu')
       end
     end
