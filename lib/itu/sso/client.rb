@@ -11,7 +11,6 @@ module ITU
 
         @connection = Faraday.new do |faraday|
           faraday.request :token_auth, access_token
-          faraday.response :logger
           faraday.adapter Faraday.default_adapter
         end
 
