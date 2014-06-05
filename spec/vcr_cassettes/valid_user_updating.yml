@@ -12,7 +12,7 @@ http_interactions:
       Content-Type:
       - application/json
       X-Userauthtoken:
-      - e7b68c1490c53213ddd85d21eb5d1def
+      - d06c34173b49111320a86cf4738dd264
       Authorization:
       - Token token="81d891aa40ad853cbfad0e1dcdb17d64"
       Accept-Encoding:
@@ -33,20 +33,20 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - '"dd9c6cd45c2b46be20d16f48421df9f7"'
+      - '"b1a0f74017bcc43b336c953ae30ad576"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 9b888ab2-8567-406a-84db-1d6cfae47844
+      - 6cc34357-1f52-46c9-8f02-f5406413467b
       X-Runtime:
-      - '0.047761'
+      - '0.053987'
       Connection:
       - close
       Server:
       - thin 1.6.2 codename Doc Brown
     body:
       encoding: UTF-8
-      string: '{"id":9,"email":"jondoe@itu-dev.edu","persistence_token":null,"single_access_token":null,"perishable_token":null,"login_count":0,"failed_login_count":0,"last_request_at":null,"current_login_at":null,"last_login_at":null,"current_login_ip":null,"last_login_ip":null,"created_at":"2014-06-05T01:27:38.000Z","updated_at":"2014-06-05T01:29:07.587Z","role_id":null,"role_type":null,"avatar_file_name":null,"avatar_content_type":null,"avatar_file_size":null,"avatar_updated_at":null,"status":true,"deleted_at":null,"account_status_id":null,"login_id":null,"legacy_role_id":null,"legacy_role_type":null,"is_admin":false,"first_name":null,"middle_name":null,"last_name":null,"ethnicity":null,"gender":null,"janzebar_id":null,"invitation_token":null,"invitation_created_at":null,"invitation_sent_at":null,"invitation_accepted_at":null,"invitation_limit":0,"invited_by_id":null,"invited_by_type":null,"invitations_count":0,"authentication_token":"e7b68c1490c53213ddd85d21eb5d1def"}'
+      string: '{"id":11,"email":"jondoe@itu-dev.edu","persistence_token":null,"single_access_token":null,"perishable_token":null,"login_count":0,"failed_login_count":0,"last_request_at":null,"current_login_at":null,"last_login_at":null,"current_login_ip":null,"last_login_ip":null,"created_at":"2014-06-05T01:40:45.000Z","updated_at":"2014-06-05T01:42:08.097Z","role_id":null,"role_type":null,"avatar_file_name":null,"avatar_content_type":null,"avatar_file_size":null,"avatar_updated_at":null,"status":true,"deleted_at":null,"account_status_id":null,"login_id":null,"legacy_role_id":null,"legacy_role_type":null,"is_admin":false,"first_name":null,"middle_name":null,"last_name":null,"ethnicity":null,"gender":null,"janzebar_id":null,"invitation_token":null,"invitation_created_at":null,"invitation_sent_at":null,"invitation_accepted_at":null,"invitation_limit":0,"invited_by_id":null,"invited_by_type":null,"invitations_count":0,"authentication_token":"d06c34173b49111320a86cf4738dd264"}'
     http_version: 
-  recorded_at: Thu, 05 Jun 2014 01:29:07 GMT
+  recorded_at: Thu, 05 Jun 2014 01:42:08 GMT
 recorded_with: VCR 2.9.2
