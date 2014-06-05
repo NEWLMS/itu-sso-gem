@@ -10,10 +10,7 @@ module ITU
       end
 
       initializer 'itu.sso.initialize' do
-        ::ActionController::Base.instance_eval do
-          helper ITU::SSO::Helpers
-        end
-
+        ActionController::Base.send :include, ITU::SSO::Helpers
         ActionView::Base.send :include, ITU::SSO::Helpers
       end
     end
