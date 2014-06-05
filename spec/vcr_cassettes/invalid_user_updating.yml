@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: patch
+    uri: http://localhost:3000/api/user
+    body:
+      encoding: UTF-8
+      string: '{"user":{"email":null}}'
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Content-Type:
+      - application/json
+      X-Userauthtoken:
+      - b4b17cdcde6684750d6b883eabb1a320
+      Authorization:
+      - Token token="81d891aa40ad853cbfad0e1dcdb17d64"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 422
+      message: ''
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - 14bd8acb-2d21-430f-98b1-e641da3505c0
+      X-Runtime:
+      - '0.017991'
+      Connection:
+      - close
+      Server:
+      - thin 1.6.2 codename Doc Brown
+    body:
+      encoding: UTF-8
+      string: '{"email":["can''t be blank","is invalid"]}'
+    http_version: 
+  recorded_at: Wed, 04 Jun 2014 23:40:49 GMT
+recorded_with: VCR 2.9.2
