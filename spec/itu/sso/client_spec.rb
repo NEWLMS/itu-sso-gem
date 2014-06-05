@@ -45,7 +45,7 @@ describe ITU::SSO::Client do
 
     describe '#get_user' do
       it 'returns user based on the auth token' do
-        client.user_token = 'b4b17cdcde6684750d6b883eabb1a320'
+        client.user_token = 'e7b68c1490c53213ddd85d21eb5d1def'
 
         VCR.use_cassette('get_user') do
           user = client.user.get
@@ -57,7 +57,7 @@ describe ITU::SSO::Client do
 
     describe '#update_user' do
       before do
-        client.user_token = 'b4b17cdcde6684750d6b883eabb1a320'
+        client.user_token = 'e7b68c1490c53213ddd85d21eb5d1def'
       end
 
       context 'succesfully' do
@@ -82,7 +82,7 @@ describe ITU::SSO::Client do
 
     describe '#delete_user' do
       before do
-        client.user_token = 'b4b17cdcde6684750d6b883eabb1a320'
+        client.user_token = 'e7b68c1490c53213ddd85d21eb5d1def'
       end
 
       it 'returns true' do

@@ -33,9 +33,9 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - 376147ea-a84c-41be-a1cd-a8a799d8ead9
+      - c9dbd38d-4671-48a2-b110-411b1a508c03
       X-Runtime:
-      - '0.034116'
+      - '0.061723'
       Connection:
       - close
       Server:
@@ -44,5 +44,5 @@ http_interactions:
       encoding: UTF-8
       string: '{"email":["has already been taken"]}'
     http_version: 
-  recorded_at: Wed, 04 Jun 2014 22:15:52 GMT
+  recorded_at: Thu, 05 Jun 2014 01:28:34 GMT
 recorded_with: VCR 2.9.2

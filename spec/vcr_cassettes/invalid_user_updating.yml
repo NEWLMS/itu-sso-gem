@@ -12,7 +12,7 @@ http_interactions:
       Content-Type:
       - application/json
       X-Userauthtoken:
-      - b4b17cdcde6684750d6b883eabb1a320
+      - e7b68c1490c53213ddd85d21eb5d1def
       Authorization:
       - Token token="81d891aa40ad853cbfad0e1dcdb17d64"
       Accept-Encoding:
@@ -35,9 +35,9 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - 14bd8acb-2d21-430f-98b1-e641da3505c0
+      - a31430cd-1e6a-46bc-9c4d-611842e1b740
       X-Runtime:
-      - '0.017991'
+      - '0.060187'
       Connection:
       - close
       Server:
@@ -46,5 +46,5 @@ http_interactions:
       encoding: UTF-8
       string: '{"email":["can''t be blank","is invalid"]}'
     http_version: 
-  recorded_at: Wed, 04 Jun 2014 23:40:49 GMT
+  recorded_at: Thu, 05 Jun 2014 01:29:07 GMT
 recorded_with: VCR 2.9.2
