@@ -2,12 +2,16 @@ require 'spec_helper'
 
 describe ITU::SSO::Helpers do
   before do
-    class DummyHelper < ActionView::Base; end
+    class DummyHelper < ActionView::Base
+      protected
+      def user_auth_token
+        'd06c34173b49111320a86cf4738dd264'
+      end
+    end
 
     ITU::SSO.configure do |config|
-      config.url             = 'http://localhost:3000/api'
-      config.access_token    = '81d891aa40ad853cbfad0e1dcdb17d64'
-      config.user_auth_token = 'd06c34173b49111320a86cf4738dd264'
+      config.url          = 'http://localhost:3000/api'
+      config.access_token = '81d891aa40ad853cbfad0e1dcdb17d64'
     end
   end
 

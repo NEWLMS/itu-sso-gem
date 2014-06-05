@@ -3,14 +3,15 @@ module ITU
     class Client
       attr_reader :access_token, :sso_url, :user, :connection
 
-      def initialize
+      def initialize(user_auth_token=nil)
         @access_token = ITU::SSO.configuration.access_token
-        @user_token   = ITU::SSO.configuration.user_auth_token
+        @user_token   = user_auth_token
         @sso_url      = ITU::SSO.configuration.url
         @user         = User.new(@user_token, self)
 
         @connection = Faraday.new do |faraday|
           faraday.request :token_auth, access_token
+          faraday.response :logger
           faraday.adapter Faraday.default_adapter
         end
 

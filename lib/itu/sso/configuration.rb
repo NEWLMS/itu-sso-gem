@@ -9,7 +9,7 @@ module ITU
     end
 
     class Configuration
-      attr_accessor :url, :access_token, :user_auth_token
+      attr_accessor :url, :access_token
     end
   end
 end

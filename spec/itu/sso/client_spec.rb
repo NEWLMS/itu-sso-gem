@@ -21,9 +21,9 @@ describe ITU::SSO::Client do
   end
 
   context 'actions' do
-    let(:client) { described_class.new }
-
     describe '#create_user' do
+      let(:client) { described_class.new }
+
       context 'succesfully' do
         it 'returns an User resourse' do
           VCR.use_cassette('valid_user_creation') do
@@ -48,9 +48,9 @@ describe ITU::SSO::Client do
     end
 
     describe '#get_user' do
-      it 'returns user based on the auth token' do
-        client.user_token = 'd06c34173b49111320a86cf4738dd264'
+      let(:client) { described_class.new('d06c34173b49111320a86cf4738dd264') }
 
+      it 'returns user based on the auth token' do
         VCR.use_cassette('get_user') do
           user = client.user.get
           expect(user).to be_instance_of(ITU::SSO::Resources::User)
@@ -60,9 +60,7 @@ describe ITU::SSO::Client do
     end
 
     describe '#update_user' do
-      before do
-        client.user_token = 'd06c34173b49111320a86cf4738dd264'
-      end
+      let(:client) { described_class.new('d06c34173b49111320a86cf4738dd264') }
 
       context 'succesfully' do
         it 'returns an User resourse' do
@@ -85,9 +83,7 @@ describe ITU::SSO::Client do
     end
 
     describe '#delete_user' do
-      before do
-        client.user_token = 'd06c34173b49111320a86cf4738dd264'
-      end
+      let(:client) { described_class.new('d06c34173b49111320a86cf4738dd264') }
 
       it 'returns true' do
         VCR.use_cassette('user_deleting') do
