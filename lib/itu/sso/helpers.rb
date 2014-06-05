@@ -14,6 +14,12 @@ module ITU
         @current_user
       end
 
+      def logout_user
+        cookies[:user_auth_token] = { value: nil,
+                                      domain: :all,
+                                      httponly: true }
+      end
+
       protected
 
       def user_auth_token
