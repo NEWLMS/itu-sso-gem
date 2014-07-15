@@ -1,16 +1,16 @@
 module ITU
   module SSO
     class Client
-      attr_reader :access_token, :sso_url, :user, :connection
+      attr_reader :client_secret, :sso_url, :user, :connection
 
       def initialize(user_auth_token=nil)
-        @access_token = ITU::SSO.configuration.access_token
+        @client_secret = ITU::SSO.configuration.client_secret
         @user_token   = user_auth_token
         @sso_url      = ITU::SSO.configuration.url
         @user         = User.new(@user_token, self)
 
         @connection = Faraday.new do |faraday|
-          faraday.request :token_auth, access_token
+          faraday.request :token_auth, client_secret
           faraday.adapter Faraday.default_adapter
 
           if ITU::SSO.configuration.debug
@@ -46,7 +46,7 @@ module ITU
           user_data = @client.json(response.body)
 
           if response.status == 200
-            Resources::User.new user_data
+            Resources::User.new(user_data)
           else
             user_data
           end
@@ -60,7 +60,7 @@ module ITU
           user_data = @client.json(response.body)
 
           if response.status == 201
-            self.token = user_data[:authentication_token]
+            self.token = user_data[:access_token]
             Resources::User.new user_data
           else
             user_data
@@ -76,7 +76,7 @@ module ITU
           user_data = @client.json(response.body)
 
           if response.status == 200
-            self.token = user_data[:authentication_token]
+            self.token = user_data[:access_token]
             Resources::User.new user_data
           else
             user_data
@@ -90,6 +90,22 @@ module ITU
                                          'X-UserAuthToken' => @token }
 
           response.status == 204
+        end
+
+        def authorize(params)
+          response = connection.post "#{@client.sso_url}/authenticate",
+                                      { user: params }.to_json,
+                                      { 'Content-Type' => 'application/json' }
+
+          user_data = @client.json(response.body)
+
+          if response.status == 201
+            self.token = user_data[:access_token]
+            Resources::User.new user_data
+          else
+            user_data
+          end
+
         end
       end
 

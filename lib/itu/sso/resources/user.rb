@@ -2,12 +2,12 @@ module ITU
   module SSO
     module Resources
       class User
-        attr_reader :id, :email, :authentication_token
+        attr_reader :id, :email, :access_token
 
         def initialize(params)
           @id                   = params[:id]
           @email                = params[:email]
-          @authentication_token = params[:authentication_token]
+          @access_token = params[:access_token]
         end
       end
     end

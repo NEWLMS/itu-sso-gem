@@ -7,8 +7,8 @@ module ITU
             client   = Client.new(user_auth_token)
             sso_user = client.user.get
 
-            if sso_user.authentication_token == user_auth_token
-              @current_user = User.find_by(authentication_token: user_auth_token)
+            if sso_user.access_token == user_auth_token
+              @current_user = User.find_by(access_token: user_auth_token)
             end
           else
             @current_user = nil

@@ -4,15 +4,15 @@ describe ITU::SSO::Client do
   before do
     ITU::SSO.configure do |config|
       config.url             = 'http://localhost:3000/api'
-      config.access_token    = '81d891aa40ad853cbfad0e1dcdb17d64'
+      config.client_secret   = '81d891aa40ad853cbfad0e1dcdb17d64'
     end
   end
 
   context 'attributes' do
     let(:client) { described_class.new }
 
-    it 'has access_token value' do
-      expect(client.access_token).to eql('81d891aa40ad853cbfad0e1dcdb17d64')
+    it 'has client_secret value' do
+      expect(client.client_secret).to eql('81d891aa40ad853cbfad0e1dcdb17d64')
     end
 
     it 'has sso_url value' do

@@ -16,11 +16,11 @@ describe ITU::SSO::Helpers do
 
     ITU::SSO.configure do |config|
       config.url          = 'http://localhost:3000/api'
-      config.access_token = '81d891aa40ad853cbfad0e1dcdb17d64'
+      config.client_secret = '81d891aa40ad853cbfad0e1dcdb17d64'
     end
 
     User.create(email: 'johndoe@itu-dev.edu',
-                authentication_token: 'd06c34173b49111320a86cf4738dd264')
+                access_token: 'd06c34173b49111320a86cf4738dd264')
   end
 
   subject { DummyHelper.new }
