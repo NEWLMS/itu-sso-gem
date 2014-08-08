@@ -9,7 +9,7 @@ module ITU
     end
 
     class Configuration
-      attr_accessor :url, :client_secret, :debug
+      attr_accessor :url, :client_secret, :debug, :client_id
 
       def initialize
         @debug = false
