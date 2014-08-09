@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3300/api/users/?id=f0ec9a8f1135cf7b6980f695f13a58e9
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Content-Type:
+      - application/json
+      Client-Id:
+      - 2c89e81d891aa40ad853cb67d75a5eec2d473cafb2ab399b6
+      Authorization:
+      - Token token="81d891aa40ad853cbfad0e1dcdb17d64"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Www-Authenticate:
+      - Token realm="Application"
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - d738ee14-a3c0-4f52-9e29-4d3897a22656
+      X-Runtime:
+      - '1.471353'
+      Connection:
+      - close
+      Server:
+      - thin 1.6.2 codename Doc Brown
+    body:
+      encoding: UTF-8
+      string: '{"error":"Invalid client id"}'
+    http_version: 
+  recorded_at: Sat, 09 Aug 2014 08:09:47 GMT
+recorded_with: VCR 2.9.2
