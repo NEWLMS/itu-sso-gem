@@ -1,18 +1,18 @@
 ---
 http_interactions:
 - request:
-    method: post
-    uri: http://localhost:3300/api/users
+    method: get
+    uri: http://localhost:3300/api/users/?id=f0ec9a8f1135cf7b6980f695f13a58e9
     body:
-      encoding: UTF-8
-      string: '{"user":{"email":"johndoe@itu-dev.edu","password":"secret","password_confirmation":"secret"}}'
+      encoding: US-ASCII
+      string: ''
     headers:
       User-Agent:
       - Faraday v0.9.0
       Content-Type:
       - application/json
       Client-Id:
-      - 81d891aa40a
+      - 2c89e67d75a5eec2d473cafb2ab399b6
       Authorization:
       - Token token="81d891aa40ad853cbfad0e1dcdb17d64"
       Accept-Encoding:
@@ -21,8 +21,8 @@ http_interactions:
       - '*/*'
   response:
     status:
-      code: 201
-      message: Created
+      code: 200
+      message: OK
     headers:
       X-Frame-Options:
       - SAMEORIGIN
@@ -33,20 +33,20 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - '"8841eb655b01fb832f42a30f4be8cfd3"'
+      - '"ddcb26d8f65d86240315a9426b654f53"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 5de721cb-ce8c-4f50-b59f-380dc71ff19b
+      - 091a8497-3d6f-4547-a007-d29c6e372766
       X-Runtime:
-      - '0.043455'
+      - '0.063967'
       Connection:
       - close
       Server:
       - thin 1.6.2 codename Doc Brown
     body:
       encoding: UTF-8
-      string: '{"id":2,"email":"johndoe@itu-dev.edu","avatar_file_name":null,"avatar_content_type":null,"avatar_file_size":null,"created_at":"2014-08-09T06:33:32.360Z","updated_at":"2014-08-09T06:33:32.360Z","access_token":"3115c713b64e5b2f034c8c9cd04573bf"}'
+      string: '{"id":3,"email":"jondoe@itu-dev.edu","avatar_file_name":null,"avatar_content_type":null,"avatar_file_size":null,"created_at":"2014-08-09T07:13:36.000Z","updated_at":"2014-08-09T07:13:36.000Z","access_token":"f0ec9a8f1135cf7b6980f695f13a58e9"}'
     http_version: 
-  recorded_at: Sat, 09 Aug 2014 06:33:32 GMT
+  recorded_at: Sat, 09 Aug 2014 07:27:14 GMT
 recorded_with: VCR 2.9.2

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: delete
-    uri: http://localhost:3000/api/user
+    uri: http://localhost:3300/api/users/?id=3115c713b64e5b2f034c8c9cd04573bf
     body:
       encoding: US-ASCII
       string: ''
@@ -11,8 +11,8 @@ http_interactions:
       - Faraday v0.9.0
       Content-Type:
       - application/json
-      X-Userauthtoken:
-      - d06c34173b49111320a86cf4738dd264
+      Client-Id:
+      - 81d891aa40a
       Authorization:
       - Token token="81d891aa40ad853cbfad0e1dcdb17d64"
       Accept-Encoding:
@@ -33,9 +33,9 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - 2e11c973-614a-4e7c-bfb8-27a33e2ad485
+      - 453c0ea5-b867-4da8-a3c3-ac9acfde6066
       X-Runtime:
-      - '0.034735'
+      - '0.023814'
       Connection:
       - close
       Server:
@@ -44,5 +44,5 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Thu, 05 Jun 2014 01:42:37 GMT
+  recorded_at: Sat, 09 Aug 2014 07:09:28 GMT
 recorded_with: VCR 2.9.2

@@ -3,8 +3,9 @@ require 'spec_helper'
 describe ITU::SSO::Client do
   before do
     ITU::SSO.configure do |config|
-      config.url             = 'http://localhost:3000/api'
+      config.url             = 'http://localhost:3300/api'
       config.client_secret   = '81d891aa40ad853cbfad0e1dcdb17d64'
+      config.client_id   = '2c89e67d75a5eec2d473cafb2ab399b6'
     end
   end
 
@@ -16,7 +17,7 @@ describe ITU::SSO::Client do
     end
 
     it 'has sso_url value' do
-      expect(client.sso_url).to eql('http://localhost:3000/api')
+      expect(client.sso_url).to eql('http://localhost:3300/api')
     end
   end
 
@@ -48,7 +49,7 @@ describe ITU::SSO::Client do
     end
 
     describe '#get_user' do
-      let(:client) { described_class.new('d06c34173b49111320a86cf4738dd264') }
+      let(:client) { described_class.new('3115c713b64e5b2f034c8c9cd04573bf') }
 
       it 'returns user based on the auth token' do
         VCR.use_cassette('get_user') do
@@ -60,7 +61,7 @@ describe ITU::SSO::Client do
     end
 
     describe '#update_user' do
-      let(:client) { described_class.new('d06c34173b49111320a86cf4738dd264') }
+      let(:client) { described_class.new('f0ec9a8f1135cf7b6980f695f13a58e9') }
 
       context 'succesfully' do
         it 'returns an User resourse' do
@@ -83,7 +84,7 @@ describe ITU::SSO::Client do
     end
 
     describe '#delete_user' do
-      let(:client) { described_class.new('d06c34173b49111320a86cf4738dd264') }
+      let(:client) { described_class.new('3115c713b64e5b2f034c8c9cd04573bf') }
 
       it 'returns true' do
         VCR.use_cassette('user_deleting') do
