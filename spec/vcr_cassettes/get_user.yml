@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/api/user
+    uri: http://localhost:3300/api/users/?id=3115c713b64e5b2f034c8c9cd04573bf
     body:
       encoding: US-ASCII
       string: ''
@@ -11,8 +11,8 @@ http_interactions:
       - Faraday v0.9.0
       Content-Type:
       - application/json
-      X-Userauthtoken:
-      - d06c34173b49111320a86cf4738dd264
+      Client-Id:
+      - 81d891aa40a
       Authorization:
       - Token token="81d891aa40ad853cbfad0e1dcdb17d64"
       Accept-Encoding:
@@ -33,20 +33,20 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - '"ad1c6980b4797d37e6527831b91498f1"'
+      - '"afe04a5b17d8cfa0992a2602a597cdde"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - fe123c0f-47bf-46d2-b015-37aee71aba0f
+      - 9b365fe1-cef9-466a-8c67-cb06cfedea52
       X-Runtime:
-      - '0.034661'
+      - '23.996905'
       Connection:
       - close
       Server:
       - thin 1.6.2 codename Doc Brown
     body:
       encoding: UTF-8
-      string: '{"id":11,"email":"johndoe@itu-dev.edu","persistence_token":null,"single_client_secret":null,"perishable_token":null,"login_count":0,"failed_login_count":0,"last_request_at":null,"current_login_at":null,"last_login_at":null,"current_login_ip":null,"last_login_ip":null,"created_at":"2014-06-05T01:40:45.000Z","updated_at":"2014-06-05T01:40:45.000Z","role_id":null,"role_type":null,"avatar_file_name":null,"avatar_content_type":null,"avatar_file_size":null,"avatar_updated_at":null,"status":true,"deleted_at":null,"account_status_id":null,"login_id":null,"legacy_role_id":null,"legacy_role_type":null,"is_admin":false,"first_name":null,"middle_name":null,"last_name":null,"ethnicity":null,"gender":null,"janzebar_id":null,"invitation_token":null,"invitation_created_at":null,"invitation_sent_at":null,"invitation_accepted_at":null,"invitation_limit":0,"invited_by_id":null,"invited_by_type":null,"invitations_count":0,"access_token":"d06c34173b49111320a86cf4738dd264"}'
+      string: '{"id":2,"email":"johndoe@itu-dev.edu","avatar_file_name":null,"avatar_content_type":null,"avatar_file_size":null,"created_at":"2014-08-09T06:33:32.000Z","updated_at":"2014-08-09T06:33:32.000Z","access_token":"3115c713b64e5b2f034c8c9cd04573bf"}'
     http_version: 
-  recorded_at: Thu, 05 Jun 2014 01:41:37 GMT
+  recorded_at: Sat, 09 Aug 2014 06:49:27 GMT
 recorded_with: VCR 2.9.2

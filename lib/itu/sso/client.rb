@@ -7,7 +7,8 @@ module ITU
         @client_secret = ITU::SSO.configuration.client_secret
         @user_token   = user_auth_token
         @sso_url      = ITU::SSO.configuration.url
-        @user         = User.new(@user_token, self)
+        @client_id    = ITU::SSO.configuration.client_id
+        @user         = User.new(@user_token, self, @client_id)
 
         @connection = Faraday.new do |faraday|
           faraday.request :token_auth, client_secret
@@ -16,6 +17,7 @@ module ITU
           if ITU::SSO.configuration.debug
             faraday.response :logger
           end
+
         end
 
         self
@@ -28,9 +30,11 @@ module ITU
       class User
         attr_accessor :token
 
-        def initialize(token, client)
-          @token  = token
+        def initialize(token, client, client_id)
+          raise ArgumentError, "Client ID can't be blank" if client_id.nil?
+          @itu_id  = token
           @client = client
+          @client_id = client_id
         end
 
         def connection
@@ -38,10 +42,11 @@ module ITU
         end
 
         def get
-          response = connection.get "#{@client.sso_url}/user",
-                                     {},
+          response = connection.get "#{@client.sso_url}/users/",
+                                     {id: @itu_id},
                                      { 'Content-Type' => 'application/json',
-                                       'X-UserAuthToken' => @token }
+                                       'CLIENT-ID' =>  @client_id
+                                     }
 
           user_data = @client.json(response.body)
 
@@ -53,9 +58,11 @@ module ITU
         end
 
         def create(params)
-          response = connection.post "#{@client.sso_url}/user",
+          response = connection.post "#{@client.sso_url}/users",
                                       { user: params }.to_json,
-                                      { 'Content-Type' => 'application/json' }
+                                      { 'Content-Type' => 'application/json',
+                                        'CLIENT-ID' =>  @client_id
+                                      }
 
           user_data = @client.json(response.body)
 
@@ -68,10 +75,10 @@ module ITU
         end
 
         def update(params)
-          response = connection.patch "#{@client.sso_url}/user",
-                                       { user: params }.to_json,
+          response = connection.patch "#{@client.sso_url}/users/",
+                                       { user: params, id: @itu_id }.to_json,
                                        { 'Content-Type' => 'application/json',
-                                         'X-UserAuthToken' => @token }
+                                         'CLIENT-ID' =>  @client_id}
 
           user_data = @client.json(response.body)
 
@@ -84,10 +91,10 @@ module ITU
         end
 
         def delete
-          response = connection.delete "#{@client.sso_url}/user",
-                                       {},
+          response = connection.delete "#{@client.sso_url}/users/",
+                                       {id: @itu_id},
                                        { 'Content-Type' => 'application/json',
-                                         'X-UserAuthToken' => @token }
+                                         'CLIENT-ID' =>  @client_id}
 
           response.status == 204
         end
