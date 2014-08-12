@@ -27,10 +27,10 @@ module ITU
       protected
 
       def user_auth_token
-        if @user_auth_token.blank? and cookies[:user_auth_token].present?
+        if @user_auth_token.blank? and params[:token].present?
           key = ActiveSupport::KeyGenerator.new(ENV.fetch('SSO_SECRET_TOKEN')).generate_key(ENV.fetch('SSO_SECRET_SALT'))
           encryptor = ActiveSupport::MessageEncryptor.new(key)
-          @user_auth_token = encryptor.decrypt_and_verify(cookies[:user_auth_token])
+          @user_auth_token = encryptor.decrypt_and_verify(params[:token])
         end
 
         @user_auth_token

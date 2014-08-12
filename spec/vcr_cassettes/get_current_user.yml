@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3300/api/users/?id=f0ec9a8f1135cf7b6980f695f13a58e9
+    uri: http://localhost:3300/api/users/?id=1
     body:
       encoding: US-ASCII
       string: ''
