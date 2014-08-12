@@ -21,7 +21,7 @@ describe ITU::SSO::Helpers do
     end
 
     @user =User.create(email: 'johndoe@itu-dev.edu',
-                access_token: 'f0ec9a8f1135cf7b6980f695f13a58e9')
+                access_token: 'f0ec9a8f1135cf7b6980f695f13a58e9', itu_id: 3)
   end
 
   subject { DummyHelper.new }

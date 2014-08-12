@@ -6,10 +6,7 @@ module ITU
           if user_auth_token.present?
             client   = Client.new(cookies[:access_token_cookie])
             sso_user = client.user.get
-
-            if sso_user.access_token == user_auth_token
-              @current_user = User.find_by(access_token: user_auth_token)
-            end
+              @current_user = User.find_by(itu_id: sso_user.id  )
           else
             @current_user = nil
           end
