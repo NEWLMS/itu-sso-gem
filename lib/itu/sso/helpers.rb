@@ -4,7 +4,7 @@ module ITU
       def current_user
         unless @current_user
           if user_auth_token.present?
-            client   = Client.new(cookies[:user_auth_token])
+            client   = Client.new(cookies[:access_token_cookie])
             sso_user = client.user.get
 
             if sso_user.access_token == user_auth_token
